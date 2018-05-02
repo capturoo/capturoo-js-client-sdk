@@ -1,8 +1,8 @@
-function CaptureClient(options) {
+function CapturooClient(options) {
   if (options.debug) {
-    this.endpoint = 'https://api-staging.capturoo.com/api/leads'
+    this.endpoint = 'https://api-staging.capturoo.com/leads'
   } else {
-    this.endpoint = options.endpoint || 'https://api.capturoo.com/api/leads';
+    this.endpoint = options.endpoint || 'https://api.capturoo.com/leads';
   }
   this.publicApiKey = options.publicApiKey;
 
@@ -13,7 +13,7 @@ function CaptureClient(options) {
   this.formPending = false;
 }
 
-CaptureClient.prototype.setForm = function setForm(formId) {
+CapturooClient.prototype.setForm = function setForm(formId) {
   var self = this;
   this.form = document.querySelector('#' + formId);
 
@@ -42,7 +42,7 @@ CaptureClient.prototype.setForm = function setForm(formId) {
   });
 };
 
-CaptureClient.prototype.send = function send(trackingData, leadData) {
+CapturooClient.prototype.send = function send(trackingData, leadData) {
   var self = this;
 
   var payload = {};

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Leads Capture Example Page</title>
-  <script src="capture-sdk.js"></script>
+  <title>Capturoo - Basic lead capture example</title>
+  <script src="capturoo-sdk.js"></script>
 </head>
 
 <body>
@@ -39,9 +39,8 @@
   </form>
 
   <script>
-    var client = new CaptureClient({
-      debug: true,
-      publicApiKey: 'abc'
+    var client = new CapturooClient({
+      publicApiKey: '<project-public-key>'
     });
 
     client.setForm('my-form');

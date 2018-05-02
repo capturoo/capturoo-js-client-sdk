@@ -5,7 +5,7 @@
 Include the JavaScript SDK in your HTML.
 
 ```javascript
-<script src="capture-sdk.js"></script>
+<script src="capturoo-sdk.js"></script>
 ```
 
 At the bottom of your HTML file use the following snippet of code to link the form
@@ -13,7 +13,7 @@ to your Capturoo project.
 
 ```javascript
 <script>
-  var client = new CaptureClient({
+  var client = new CapturooClient({
     publicApiKey: '<project-public-key>'
   });
 
