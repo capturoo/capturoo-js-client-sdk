@@ -13,6 +13,8 @@ function CapturooClient(options) {
   this.formPending = false;
 }
 
+CapturooClient.prototype.version = '0.3.0';
+
 CapturooClient.prototype.setForm = function setForm(formId) {
   var self = this;
   this.form = document.querySelector('#' + formId);

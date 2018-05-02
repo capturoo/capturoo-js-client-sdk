@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.3.0 (2 May 2018)
++ CapturooClient publishes the version string
+
 ## 0.2.0 (2 May 2018)
 + Rename the JavaScript file to capturoo-sdk
 + Fix broken endpoints
