@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Leads Capture Example Page</title>
+  <script src="capture-sdk.js"></script>
+</head>
+
+<body>
+  <form id="my-form" method="post" accept-charset="utf-8">
+  <input type="hidden" name="_form" value="woofy-home-form">
+  <input type="hidden" name="dialcode" value="66">
+
+  <input type="hidden" name="template" value="themea">
+
+  <div>
+    <label>Name</label>
+    <input type="text" name="name" value="">
+  </div>
+
+  <div>
+    <label>Favourite food</label>
+    <input type="text" name="favfood" value="">
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="text" name="email" value="">
+  </div>
+
+  <div>
+    <label>Phone Number</label>
+    <input type="text" name="phone" value="">
+  </div>
+
+  <div>
+    <button type="submit">SEND</button>
+  </div>
+  </form>
+
+  <script>
+    var client = new CaptureClient({
+      debug: true,
+      publicApiKey: 'abc'
+    });
+
+    client.setForm('my-form');
+  </script>
+</body>
+</html>
