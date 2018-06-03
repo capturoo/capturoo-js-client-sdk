@@ -1,6 +1,6 @@
 function CapturooClient(options) {
   if (options.debug) {
-    this.endpoint = 'https://api-staging.capturoo.com/leads'
+    this.endpoint = 'https://api-staging.capturoo.com/leads';
   } else {
     this.endpoint = options.endpoint || 'https://api.capturoo.com/leads';
   }
@@ -13,7 +13,7 @@ function CapturooClient(options) {
   this.formPending = false;
 }
 
-CapturooClient.prototype.version = '0.3.0';
+CapturooClient.prototype.version = '0.4.0';
 
 CapturooClient.prototype.setForm = function setForm(formId) {
   var self = this;
@@ -27,9 +27,9 @@ CapturooClient.prototype.setForm = function setForm(formId) {
     self.formPending = true;
 
     var formData = new FormData(self.form);
-    leadData = {};
+    lead = {};
     formData.forEach(function (value, key) {
-      leadData[key] = value;
+      lead[key] = value;
     });
 
     self.send({
@@ -38,18 +38,18 @@ CapturooClient.prototype.setForm = function setForm(formId) {
       utmTerm: 'test-term',
       utmContent: 'test-content',
       utmCampaign: 'test-campaign'
-    }, leadData);
+    }, lead);
 
     return false;
   });
 };
 
-CapturooClient.prototype.send = function send(trackingData, leadData) {
+CapturooClient.prototype.send = function send(tracking, lead) {
   var self = this;
 
   var payload = {};
   Object.assign(payload, {
-    systemData: {
+    system: {
       url: window.location.url,
       referrer: document.referrer,
       host: window.location.host,
@@ -57,8 +57,8 @@ CapturooClient.prototype.send = function send(trackingData, leadData) {
       port: window.location.port,
       userAgent: this.userAgent
     },
-    trackingData,
-    leadData
+    tracking,
+    lead
   });
 
   fetch(this.endpoint, {

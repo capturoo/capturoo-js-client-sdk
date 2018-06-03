@@ -5,7 +5,7 @@
 Be sure to include the Capturoo JavaScript Client SDK in your HTML. We recommend you use the CDN hosted version unless you require the latest development version, or wish to host the SDK on your own server.
 
 ```javascript
-<script src="https://code.capturoo.com/capturoo-sdk-0.3.0.js"></script>
+<script src="https://code.capturoo.com/capturoo-sdk-0.4.0.js"></script>
 ```
 
 At the bottom of your HTML file use the following snippet of code to link the form

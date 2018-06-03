@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.4.0 (1 June 2018)
++ Server-side API expects different reqest body { system: {}, tracking: {}, leads: {} }
+
 ## 0.3.0 (2 May 2018)
 + CapturooClient publishes the version string
 
