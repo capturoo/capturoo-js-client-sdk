@@ -13,7 +13,7 @@ function CapturooClient(options) {
   this.formPending = false;
 }
 
-CapturooClient.prototype.version = '0.4.0';
+CapturooClient.prototype.version = '0.5.0';
 
 CapturooClient.prototype.setForm = function setForm(formId) {
   var self = this;
@@ -26,10 +26,26 @@ CapturooClient.prototype.setForm = function setForm(formId) {
     }
     self.formPending = true;
 
+    const formCheckboxes = self.form.querySelectorAll('input[type=checkbox]');
+    var lead = {};
+    console.log(lead);
+    formCheckboxes.forEach(function(v) {
+      if (!lead[v.name]) {
+        lead[v.name] = [];
+      }
+    });
+
+    console.log(lead);
+
     var formData = new FormData(self.form);
-    lead = {};
     formData.forEach(function (value, key) {
-      lead[key] = value;
+      if (!lead[key]) {
+        lead[key] = value;
+      } else {
+        if (lead[key].constructor === Array) {
+          lead[key].push(value);
+        }
+      }
     });
 
     self.send({
@@ -68,10 +84,10 @@ CapturooClient.prototype.send = function send(tracking, lead) {
    headers: {
      'User-Agent': this.userAgent,
      'Content-Type': 'application/json',
-     'X-API-Key': this.publicApiKey
+     'X-API-Key': this.publicApiKey,
+     'x-capturoo-timing': 'on'
    },
-   method: 'POST',
-   mode: 'cors'
+   method: 'POST'
   })
   .then(function(response) {
     self.formPending = false;

@@ -1,4 +1,6 @@
 # CHANGELOG
+## 0.5.0 (Wed, 11 July 2018)
++ Add support for checkboxes
 
 ## 0.4.0 (1 June 2018)
 + Server-side API expects different reqest body { system: {}, tracking: {}, leads: {} }
