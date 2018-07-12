@@ -13,7 +13,7 @@ function CapturooClient(options) {
   this.formPending = false;
 }
 
-CapturooClient.prototype.version = '0.5.0';
+CapturooClient.prototype.version = '0.5.1';
 
 CapturooClient.prototype.setForm = function setForm(formId) {
   var self = this;
@@ -80,7 +80,6 @@ CapturooClient.prototype.send = function send(tracking, lead) {
   fetch(this.endpoint, {
    body: JSON.stringify(payload),
    cache: 'no-cache',
-   credentials: 'same-origin',
    headers: {
      'User-Agent': this.userAgent,
      'Content-Type': 'application/json',

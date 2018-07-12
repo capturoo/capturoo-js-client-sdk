@@ -1,4 +1,7 @@
 # CHANGELOG
+## 0.5.1 (Thu, 12 July 2018)
++ Remove same-origin policy
+
 ## 0.5.0 (Wed, 11 July 2018)
 + Add support for checkboxes
 
