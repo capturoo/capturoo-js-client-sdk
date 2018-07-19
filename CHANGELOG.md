@@ -1,4 +1,9 @@
 # CHANGELOG
+## 1.0.0 (Thu, 19 July 2018)
++ rollup config for ES6 Modules, CommonJS and UMD formats
++ client.capture Promise-based method to call API
++ client.captureForm Promise-based method to grab form data
+
 ## 0.5.1 (Thu, 12 July 2018)
 + Remove same-origin policy
 
