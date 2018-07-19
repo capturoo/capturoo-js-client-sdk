@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.0.4 (Thu, 19 July 2018)
++ Fix README to use correct CDN link
+
 ## 1.0.3 (Thu, 19 July 2018)
 + Fix compilation error
 

@@ -7,7 +7,7 @@ recommend you use the CDN hosted version unless you require the latest
 development version, or wish to host the SDK on your own server.
 
 ```javascript
-<script src="https://code.capturoo.com/capturoo-sdk-1.0.0.js"></script>
+<script src="https://code.capturoo.com/capturoo-sdk-1.0.4.js"></script>
 ```
 
 At the bottom of your HTML file use the following snippet of code to link
