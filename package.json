@@ -1,6 +1,6 @@
 {
-  "name": "capturoo-js-client-sdk",
-  "version": "1.0.0",
+  "name": "@capturoo/capturoo-js-client-sdk",
+  "version": "1.0.3",
   "description": "Capturoo JS Client SDK",
   "main": "dist/index.cjs.js",
   "scripts": {

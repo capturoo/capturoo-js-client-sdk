@@ -1,4 +1,10 @@
 # CHANGELOG
+## 1.0.3 (Thu, 19 July 2018)
++ Fix compilation error
+
+## 1.0.2 (Thu, 19 July 2018)
++ Fix package.json name to include scope
+
 ## 1.0.0 (Thu, 19 July 2018)
 + rollup config for ES6 Modules, CommonJS and UMD formats
 + client.capture Promise-based method to call API
