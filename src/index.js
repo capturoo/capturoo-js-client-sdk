@@ -4,8 +4,13 @@ function CapturooClient(options) {
   } else {
     this.endpoint = options.endpoint || 'https://api.capturoo.com/leads';
   }
-  this.publicApiKey = options.publicApiKey;
+  if (!/^[A-Za-z0-9]{34}$/.test(options.publicApiKey)) {
+    console.error('Invalid public key');
+    this.invalidPublicKey = true;
+  }
 
+  this.publicApiKey = options.publicApiKey;
+  this.invalidPublicKey = false;
   this.userAgent = window.navigator.userAgent || '';
   this.port = window.location.port;
   this.form = undefined;
@@ -15,6 +20,33 @@ function CapturooClient(options) {
 }
 
 CapturooClient.prototype.version = CAPTUROO_VERSION;
+
+CapturooClient.prototype.getUrlQueryParams = function getUrlQueryParams() {
+  var query = document.location.search.substring(1);
+  var params = new URLSearchParams(query);
+  var validTrackingKeys = [
+    'utm_source',
+    'utm_medium',
+    'utm_campaign',
+    'utm_term',
+    'utm_content',
+    'gclid'
+  ];
+
+  function underscoreToCamel(s) {
+    return s.replace(/(_\w)/g, function(m) {
+      return m[1].toUpperCase();
+    });
+  }
+
+  var obj = {};
+  validTrackingKeys.forEach(function(key) {
+    if (params.get(key) !== null) {
+      obj[underscoreToCamel(key)] = params.get(key);
+    }
+  });
+  return obj;
+};
 
 CapturooClient.prototype.captureForm = function captureForm(formId) {
   var self = this;
@@ -55,7 +87,7 @@ CapturooClient.prototype.captureForm = function captureForm(formId) {
 
 CapturooClient.prototype.capture = function capture(lead, tracking) {
   lead = lead || this.lead;
-  tracking = tracking || {};
+  tracking = tracking || this.getUrlQueryParams();
   var self = this;
 
   var payload = {};

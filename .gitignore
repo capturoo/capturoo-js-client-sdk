@@ -1,4 +1,4 @@
 *.tgz
 dist/
 node_modules/
-public/capturoo-sdk.js
+public/capturoo-sdk*.js

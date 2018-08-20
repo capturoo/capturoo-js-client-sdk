@@ -3,12 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Capturoo - Basic lead capture example</title>
-  <script src="https://code.capturoo.com/capturoo-sdk-1.0.4.js"></script>
+  <script src="https://code.capturoo.com/capturoo-sdk-1.1.0.js"></script>
 </head>
 
 <body>
-  <a href="test.html">Test page</a>
-
   <form id="my-form" method="post" accept-charset="utf-8">
   <input type="hidden" name="_form" value="woofy-home-form">
   <input type="hidden" name="dialcode" value="66">
@@ -53,15 +51,21 @@
 
     client.captureForm('my-form')
       .then(function(lead) {
-        return client.capture(lead, {
-          utmSource: 'test'
-        });
+        return client.capture(lead);
       })
       .then(function(response) {
+        if (response.status === 400) {
+          console.log('Bad Request');
+          console.error(response);
+        } else if (response.status === 401) {
+          console.error('Unauthorized');
+          console.error(response);
+        } else {
+          client.redirect('success.html');
         // uncommment if you want to deal with the captured lead
         // var json = response.json();
         // console.log(json);
-        client.redirect('success.html');
+        }
       })
       .catch(function(err) {
         console.error(err);

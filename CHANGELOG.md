@@ -1,4 +1,9 @@
 # CHANGELOG
+## 1.1.0 (Mon, 20 August 2018)
++ Uses URLSearchParams to extract Google tracking from query string parameters
++ Report 400 Bad Request and 401 Unauthorized POST requests to the console window
++ Uses a Regular Expression to validate public API key format
+
 ## 1.0.4 (Thu, 19 July 2018)
 + Fix README to use correct CDN link
 
