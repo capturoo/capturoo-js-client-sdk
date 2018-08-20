@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.1.1 (Mon, 20 August 2018)
++ Fix README.md to reference correct SDK version
+
 ## 1.1.0 (Mon, 20 August 2018)
 + Uses URLSearchParams to extract Google tracking from query string parameters
 + Report 400 Bad Request and 401 Unauthorized POST requests to the console window
